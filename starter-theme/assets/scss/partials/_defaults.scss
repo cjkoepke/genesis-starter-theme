@@ -1,0 +1,38 @@
+
+
+/*================================
+=            Defaults            =
+================================*/
+
+body {
+	background-color: #fff;
+	color: $default;
+	font-family: $fontBody;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 1.611;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+
+	.nav-visible {
+		overflow: hidden;
+	}
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  768  ----------*/
+
+@media screen and (min-width: 768px) {
+
+	/* Typography */
+	body,
+	body > div {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+}

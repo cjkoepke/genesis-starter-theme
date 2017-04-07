@@ -1,0 +1,56 @@
+/*===============================
+=            Widgets            =
+===============================*/
+
+/*----------  Header Widget Area  ----------*/
+
+.header-widget-area {
+	display: none;
+	max-width: 600px;
+	width: 100%;
+}
+
+/*----------  Sidebar Widgets  ----------*/
+
+.sidebar .widget {
+	margin-bottom: 40px;
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  768  ----------*/
+
+@media screen and (min-width: 768px) {
+
+	/* Footer Widgets */
+	.footer-widgets-1,
+	.footer-widgets-2,
+	.footer-widgets-3 {
+		float: left;
+		margin-left: 2.564102564102564%;
+		width: 31.623931623931625%;
+	}
+
+	.footer-widgets-1 {
+		margin-left: 0;
+	}
+
+}
+
+/*----------  1200  ----------*/
+
+@media screen and (min-width: 1200px) {
+
+	/* Widget Areas */
+	.sidebar,
+	.header-widget-area {
+		display: block;
+	}
+
+	.footer-widgets {
+		margin-top: 40px;
+	}
+
+}

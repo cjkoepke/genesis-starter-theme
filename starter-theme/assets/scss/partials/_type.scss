@@ -1,0 +1,255 @@
+
+/*----------  Typography  ----------*/
+
+html {
+    font-size: 62.5%; /* Set the default browser size to 10px */
+
+    > div {
+	    font-size: 1.6rem; /* Chrome fix for REM values */
+	}
+}
+
+a {
+	border-bottom: 1px solid currentColor;
+	color: $linkDefault;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		border-bottom: 0;
+	}
+}
+
+p {
+	margin: 0 0 1.3em 0;
+	padding: 0;
+}
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.entry-content,
+.footer-widgets {
+
+	ol,
+	ul {
+		margin-bottom: 28px;
+		margin-left: 40px;
+	}
+
+	ol > li {
+		list-style-type: decimal;
+	}
+
+	ul > li {
+		list-style-type: disc;
+	}
+
+	ol ol,
+	ul ul {
+		margin-bottom: 0;
+	}
+}
+
+hr {
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #eee;
+	clear: both;
+	margin: 1em 0;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+blockquote,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	border-left: 3px solid #000;
+	color: #000;
+	margin: 1.3em 0;
+	padding-left: 10px;
+}
+
+small,
+cite {
+	font-size: 0.75em;
+}
+
+/*----------  Headings  ----------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $linkDefault;
+	font-family: $fontHeading;
+	font-weight: 700;
+	margin: 1.414em 0 0.5em;
+}
+
+h1 {
+	font-size: 32px;
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-size: 26px;
+	font-size: 2.6rem;
+	line-height: 1.15em;
+}
+
+h3 {
+	font-size: 22px;
+	font-size: 2.2rem;
+	line-height: 1.13em;
+}
+
+h4,
+h5,
+h6 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.1em;
+}
+
+/*----------  Site Header  ----------*/
+
+.site-title {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.site-description {
+	display: none;
+	font-size: 1em;
+}
+
+/*----------  Widgets  ----------*/
+
+.widget-title,
+.footer-widgets .widget-title,
+.sidebar .entry-title {
+	font-size: 22px;
+	font-size: 2.2rem;
+	margin-top: 0;
+}
+
+.footer-widgets .widget-title {
+	margin-top: 0;
+}
+
+/*----------  Author Box  ----------*/
+
+.author-box-title {
+	font-size: 18px;
+	font-size: 1.8rem;
+	margin-top: 0;
+}
+
+/*----------  Archive Description  ----------*/
+
+.archive-title {
+	margin: 0;
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  768  ----------*/
+
+@media screen and (min-width: 768px) {
+
+	h1,
+	.entry-title {
+		font-size: 40px;
+		font-size: 4rem;
+		line-height: 1.25em;
+	}
+
+	h2 {
+		font-size: 32px;
+		font-size: 3.2rem;
+		line-height: 1.25em;
+	}
+
+	h3 {
+		font-size: 24px;
+		font-size: 2.4rem;
+		line-height: 1.25em;
+	}
+
+	h4,
+	h5,
+	h6 {
+		font-size: 18px;
+		font-size: 1.8rem;
+		line-height: 1.22em;
+	}
+
+	blockquote {
+		font-size: 1.3em;
+		padding-left: 40px;
+	}
+
+}
+
+/*----------  1200  ----------*/
+
+@media screen and (min-width: 1200px) {
+
+	/* Typography */
+	h1,
+	.entry-title {
+		font-size: 48px;
+		font-size: 4.8rem;
+		line-height: 1.05em;
+	}
+
+	h2 {
+		font-size: 36px;
+		font-size: 3.6rem;
+		line-height: 1.25em;
+	}
+
+	h3 {
+		font-size: 28px;
+		font-size: 2.8rem;
+		line-height: 1.25em;
+	}
+
+	h4,
+	h5,
+	h6 {
+		font-size: 20px;
+		font-size: 2rem;
+		line-height: 1.25em;
+	}
+
+	.site-title {
+		font-size: 30px;
+		font-size: 3rem;
+	}
+
+}

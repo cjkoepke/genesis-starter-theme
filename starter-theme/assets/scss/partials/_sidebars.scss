@@ -1,0 +1,44 @@
+
+/*================================
+=            Sidebars            =
+================================*/
+
+.sidebar {
+	display: none;
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  1200  ----------*/
+
+@media screen and (min-width: 1200px) {
+
+	/* Primary Sidebar */
+
+	.sidebar-primary {
+		float: right;
+		width: 320px;
+	}
+
+	.sidebar-content,
+	.sidebar-sidebar-content {
+
+		.sidebar-primary {
+			float: left;
+		}
+	}
+
+	/* Secondary Sidebar */
+
+	.sidebar-secondary {
+		float: left;
+		width: 180px;
+	}
+
+	.content-sidebar-sidebar .sidebar-secondary {
+		float: right;
+	}
+
+}

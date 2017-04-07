@@ -1,0 +1,17 @@
+{
+  "name": "startertheme",
+  "version": "1.1.0",
+  "author": "Calvin Koepke",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sort": "^2.0.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-wp-pot": "^1.1.1",
+    "gulp-zip": "^3.2.0"
+  },
+  "scripts": {
+    "postinstall": "gulp"
+  }
+}

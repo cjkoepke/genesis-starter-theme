@@ -1,0 +1,27 @@
+
+/*----------  Objects  ----------*/
+
+embed,
+iframe,
+img,
+object,
+video,
+.wp-caption {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+}
+
+.featured-content,
+.gallery {
+
+	img {
+		width: auto;
+	}
+}
+
+.wp-caption {
+	margin: 0;
+}

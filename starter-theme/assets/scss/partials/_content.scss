@@ -1,0 +1,138 @@
+
+
+/*=====================================
+=            Content Areas            =
+=====================================*/
+
+/*----------  Entries  ----------*/
+
+.content .entry:first-of-type .entry-title {
+	margin-top: 0;
+}
+
+.entry {
+	text-rendering: optimizeLegibility;
+}
+
+.entry-content code {
+	background-color: #ddd;
+}
+
+/*----------  Entry Meta  ----------*/
+
+p.entry-meta {
+	font-size: .8em;
+	font-style: italic;
+}
+
+/*----------  Comments  ----------*/
+
+.comment-header {
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.comment-author {
+	margin: 0;
+}
+
+.comment .avatar {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.says,
+.comment-meta,
+.comment-edit-link {
+	font-size: .8em;
+	font-style: italic;
+	margin: 0;
+}
+
+.comment-reply {
+	clear: both;
+}
+
+li.pingback,
+li.comment > article {
+	margin-bottom: 40px;
+}
+
+ul.children {
+	margin-left: 10px;
+}
+
+.comment-reply-title > small,
+.logged-in-as {
+	font-family: $fontBody;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-style: italic;
+	font-weight: normal;
+}
+
+/*----------  Pagination  ----------*/
+
+.pagination {
+	overflow: hidden;
+	padding: 40px 0;
+
+	ul {
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+
+		&.active a {
+			border: 0;
+			font-weight: bold;
+		}
+	}
+
+	a {
+		font-style: italic;
+		margin: 0 10px;
+	}
+
+	.pagination-next,
+	.pagination-previous {
+		display: block;
+		width: 100%;
+	}
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  768  ----------*/
+
+@media screen and (min-width: 768px) {
+
+	/* Comments */
+	.comment .avatar {
+		margin-right: 24px;
+	}
+
+	ul.children {
+		margin-left: 40px;
+	}
+
+	/* Pagination */
+	.pagination {
+		.pagination-next,
+		.pagination-previous {
+			display: inline-block;
+			width: auto;
+		}
+
+		.pagination-next {
+			float: right;
+		}
+
+		.pagination-previous {
+			float: left;
+		}
+	}
+}

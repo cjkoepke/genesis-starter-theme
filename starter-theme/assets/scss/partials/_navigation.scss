@@ -1,0 +1,245 @@
+
+
+/*==================================
+=            Navigation            =
+==================================*/
+
+.genesis-nav-menu {
+	clear: both;
+	line-height: 1;
+
+	.menu-item {
+		display: block;
+		position: relative;
+		text-align: right;
+
+		> a {
+			padding: 20px;
+		}
+	}
+
+	a {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		padding: 20px 10px;
+		text-align: left;
+	}
+
+	.menu-item.menu-item-has-children > a {
+		padding-right: 50px;
+	}
+
+	/* Sub Menu */
+	.sub-menu {
+		display: none;
+
+		a {
+			font-size: .8em;
+			padding-left: 40px;
+			word-wrap: break-word;
+		}
+
+		.sub-menu {
+
+			a {
+				padding-left: 60px;
+			}
+		}
+	}
+}
+
+/*----------  Primary Navigation  ----------*/
+
+.nav-primary,
+.nav-primary .genesis-nav-menu {
+	width: 100%;
+}
+
+.nav-primary {
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	display: none;
+	height: 100%;
+	overflow-y: scroll;
+	padding-top: 65px;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+.admin-bar .nav-primary {
+	padding-top: 111px;
+}
+
+/*----------  Secondary Navigation  ----------*/
+
+.nav-secondary {
+	border-bottom: 1px solid #ddd;
+	font-size: .8em;
+	font-style: italic;
+	display: none;
+}
+
+
+/*----------  Menu Toggle  ----------*/
+
+.menu-toggle {
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid currentColor;
+	color: $linkDefault;
+	float: right;
+	font-weight: bold;
+	padding: 0;
+	text-align: right;
+	text-transform: none;
+}
+
+.menu-toggle,
+.sub-menu-toggle {
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: transparent;
+		color: $default;
+	}
+}
+
+.sub-menu-toggle {
+	background: transparent;
+	border: 0;
+	padding: 20px;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	&::before {
+		color: $linkDefault;
+		content: "\f347";
+		display: block;
+		font-family: "dashicons";
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	.activated {
+		transform: rotate(180deg);
+	}
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/*----------  1200  ----------*/
+
+@media screen and (min-width: 1200px) {
+
+	/* Navigation */
+	.genesis-nav-menu {
+		clear: both;
+		line-height: 1;
+		text-align: left;
+
+		.menu-item {
+			display: inline-block;
+			position: relative;
+			text-align: left;
+		}
+
+		a {
+			border-bottom: 0;
+			display: block;
+			padding: 20px;
+		}
+
+		> .menu-item > a {
+			padding: 20px;
+		}
+
+		/* Sub Menu */
+		.sub-menu {
+			display: none;
+			left: 0;
+			margin-left: 0;
+			position: absolute;
+			width: 200px;
+			z-index: 99;
+
+			a {
+				background: #fff;
+				border: 1px solid #ddd;
+				border-top: 0;
+				padding: 20px;
+				word-wrap: break-word;
+			}
+
+			> .menu-item:first-child {
+				border-top: 1px solid #ddd;
+			}
+
+			.sub-menu {
+				margin: -1px 0 0 198px;
+				top: 0;
+
+				a {
+					padding: 20px;
+				}
+			}
+
+			a,
+			.menu-item {
+				display: block;
+			}
+
+			.menu-item-has-children:hover > .sub-menu {
+				display: block;
+				left: auto;
+			}
+		}
+	}
+
+	/* Genesis Navigation */
+
+	.nav-primary,
+	.nav-primary .genesis-nav-menu {
+		width: 100%;
+	}
+
+	.nav-primary,
+	.admin-bar .nav-primary {
+		display: block;
+		height: auto;
+		overflow: visible;
+		padding: 0;
+		position: static;
+	}
+
+	.nav-primary,
+	.nav-secondary {
+
+		> .wrap {
+			max-width: 1240px;
+			padding: 0 40px;
+		}
+	}
+
+	/* Secondary Navigation */
+
+	.nav-secondary {
+		display: block;
+	}
+
+	/* Mobile Navigation */
+
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: none;
+	}
+
+	.genesis-nav-menu .menu-item.menu-item-has-children > a {
+		padding-right: 20px;
+	}
+
+}
