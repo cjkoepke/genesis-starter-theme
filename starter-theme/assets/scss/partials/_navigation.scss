@@ -90,9 +90,12 @@
 	color: $linkDefault;
 	float: right;
 	font-weight: bold;
-	padding: 0;
+	padding: 20px 10px;
+	position: fixed;
 	text-align: right;
 	text-transform: none;
+	right: 0;
+	z-index: 1000;
 }
 
 .menu-toggle,

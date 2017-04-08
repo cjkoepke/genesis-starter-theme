@@ -14,7 +14,7 @@
  * Credits and Licensing
  * --------------
  * Starter was created by Calvin Koepke, and is under GPL 2.0+.
- * 
+ *
  * Find me on Twitter: @cjkoepke
  *
  */
@@ -57,22 +57,54 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'startertheme_load_assets' );
 function startertheme_load_assets() {
 
-	/* Load Google Font */
+	// Load fonts.
 	wp_enqueue_style( 'startertheme-fonts', '//fonts.googleapis.com/css?family=Lato:400,700,700italic', array(), CHILD_THEME_VERSION );
 
-	/* Load JS */
-	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/assets/js/global.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'startertheme-responsive-menu', get_stylesheet_directory_uri() . '/assets/js/responsive-menu.js', array( 'jquery', 'startertheme-global' ), CHILD_THEME_VERSION, true );
+	// Load JS.
+	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/build/js/global.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
-	/* Load Icons */
+	// Load default icons.
 	wp_enqueue_style( 'dashicons' );
 
-	/* Localize Responsive Menu Variables */
-	$output = array(
-		'mainMenu' => __( 'Menu', 'startertheme' ),
-		'subMenu'  => __( 'Menu', 'startertheme' ),
+	// Load responsive menu.
+	$suffix = defined( SCRIPT_DEBUG ) && SCRIPT_DEBUG ? '' : '.min';
+	wp_enqueue_script( 'startertheme-responsive-menu', get_stylesheet_directory_uri() . '/build/js/responsive-menus' . $suffix . '.js', array( 'jquery', 'startertheme-global' ), CHILD_THEME_VERSION, true );
+	wp_localize_script(
+		'startertheme-responsive-menu',
+		'genesis_responsive_menu',
+	 	starter_get_responsive_menu_args()
 	);
-	wp_localize_script( 'startertheme-responsive-menu', 'starterthemeL10n', $output );
+
+}
+
+/**
+ * Set the responsive menu arguments.
+ *
+ * @return array Array of menu arguments.
+ *
+ * @since 1.1.0
+ */
+function starter_get_responsive_menu_args() {
+
+	$args = array(
+		'mainMenu'         => __( 'Menu', TEXT_DOMAIN ),
+		'menuIconClass'    => 'dashicons-before dashicons-menu',
+		'subMenu'          => __( 'Menu', TEXT_DOMAIN ),
+		'subMenuIconClass' => 'dashicons-before dashicons-arrow-down-alt2',
+		'menuClasses'      => array(
+			'combine' => array(
+				'.nav-primary',
+				'.nav-header',
+				'.nav-secondary',
+			),
+			'others'  => array(
+				'.nav-footer',
+				'.nav-sidebar',
+			),
+		),
+	);
+
+	return $args;
 
 }
 
