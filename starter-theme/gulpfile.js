@@ -25,6 +25,7 @@ var scss = require( 'gulp-ruby-sass' );
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
+var pump = require('pump');
 var rename = require( 'gulp-rename' );
 var sort = require( 'gulp-sort' );
 var wpPot = require( 'gulp-wp-pot' );
@@ -33,24 +34,33 @@ var zip = require( 'gulp-zip' );
 var taskLoader = [ 'scripts', 'scss', 'watch' ];
 
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
-gulp.task( 'scripts', function() {
+gulp.task( 'scripts', function(cb) {
 
-	gulp.src( PATHS.js + '**/*.js' )
-		.pipe( uglify() )
-		.pipe( rename({ extname: '.min.js' }))
-		.pipe( gulp.dest( PATHS.build.js ) );
+	pump([
+		gulp.src( PATHS.js + '**/*.js' ),
+		sourcemaps.init(),
+		uglify(),
+		rename({ extname: '.min.js' }),
+		sourcemaps.write('maps'),
+		gulp.dest( PATHS.build.js )
+	], cb);
 
 });
 
 //* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
 gulp.task( 'scss', function() {
 
-	scss( PATHS.scss + 'style.scss' )
+	scss( PATHS.scss + 'style.scss', {sourcemap: true} )
+		.on('error', scss.logError)
+		.pipe(sourcemaps.init())
 		.pipe(cssnano({
 			autoprefixer: {
 				add: true
 			},
-			sourcemap: true
+		}))
+		.pipe(sourcemaps.write('maps', {
+			includeContent: false,
+			sourceRoot: './assets/scss'
 		}))
 		.pipe( gulp.dest( './' ) );
 

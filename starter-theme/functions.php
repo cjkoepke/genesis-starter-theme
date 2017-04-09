@@ -61,7 +61,7 @@ function startertheme_load_assets() {
 	wp_enqueue_style( 'startertheme-fonts', '//fonts.googleapis.com/css?family=Lato:400,700,700italic', array(), CHILD_THEME_VERSION );
 
 	// Load JS.
-	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/build/js/global.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/build/js/global.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
 	// Load default icons.
 	wp_enqueue_style( 'dashicons' );
