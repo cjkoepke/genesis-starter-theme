@@ -20,7 +20,6 @@
 
 .site-inner {
 	clear: both;
-	margin-top: 65px; /* Height of header */
 	padding: 20px 10px;
 }
 
@@ -29,20 +28,26 @@
 .site-header {
 	background: #fff;
 	border-bottom: 1px solid $colorLight;
-	left: 0;
-	overflow: hidden;
-	position: fixed;
-	top: 0;
 	width: 100%;
-	z-index: 100;
+
+	@media only screen and (min-width: $break-medium) {
+		> .wrap {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+
+	> .wrap {
+		padding: 20px 10px;
+
+		@media only screen and (min-width: $break-large) {
+			padding: 40px;
+		}
+	}
 }
 
 .admin-bar .site-header {
 	top: 46px;
-}
-
-.site-header > .wrap {
-	padding: 20px 10px;
 }
 
 .title-area {
@@ -100,8 +105,7 @@
 		padding: 40px;
 	}
 
-	.footer-widgets,
-	.site-header > .wrap {
+	.footer-widgets {
 		padding-left: 40px;
 		padding-right: 40px;
 	}
@@ -115,14 +119,6 @@
 	/* Structure */
 	.site-inner {
 		margin-top: 0;
-	}
-
-	.site-header {
-		position: static;
-
-		> .wrap {
-			padding: 40px;
-		}
 	}
 
 	/* Layout Wrappers */

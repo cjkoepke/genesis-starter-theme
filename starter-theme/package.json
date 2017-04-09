@@ -14,6 +14,8 @@
     "postinstall": "gulp"
   },
   "dependencies": {
-    "gulp-ruby-sass": "^2.1.1"
+    "gulp-cssnano": "^2.1.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-sourcemaps": "^2.5.1"
   }
 }

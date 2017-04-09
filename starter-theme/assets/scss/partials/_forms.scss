@@ -47,7 +47,9 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	border: 3px solid currentColor;
+	background: $default;
+	border: 3px solid $default;
+	color: #fff;
 	cursor: pointer;
 	font-family: $fontHeading;
 	font-weight: 700;
@@ -66,8 +68,9 @@ input:focus[type="button"],
 input:focus[type="reset"],
 input:focus[type="submit"],
 .button:focus {
-	background-color: $default;
-	color: #fff;
+	background-color: #fff;
+	border-color: $default;
+	color: $default;
 }
 
 .button {

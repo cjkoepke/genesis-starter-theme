@@ -1,4 +1,4 @@
-/*
+/*!
 	Theme Name: Starter Theme
 	Description: A lightweight and mobile-first starter theme for the Genesis Framework.
 	Author: Calvin Koepke
@@ -12,6 +12,7 @@
 */
 
 @import 'mixins/bourbon/_bourbon';
+@import 'variables/var-units';
 @import 'variables/var-type';
 @import 'variables/var-color';
 
