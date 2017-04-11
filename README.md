@@ -53,7 +53,14 @@ $ npm install --save-dev --legacy-bundling
 6. You're good to go!
 
 ## Optional Commands
-There are two optional Gulp commands for you to use in the Terminal:
+There are three specific Gulp commands for you to use in the Terminal:
+
+### Watch files
+To start the file watcher for changes made to files in `/assets/scss` and `/assets/js`, all you need to do is run the command:
+
+```
+$ gulp watch
+```
 
 ### Build POT File for Translation
 To build a POT file for your theme (so translators can include different languages), you need to generate a POT file. This is usually pretty tedious, but Gulp makes it easy and as simple as running this command:
