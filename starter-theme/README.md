@@ -10,8 +10,9 @@ Useful Links:
 
 ## Changelog
 = 1.1.0 =
-* Added better responsive menu
-* Fixed documentation
+* Added better responsive menu + menu styles
+* Added sourcemapping
+* Added error logging to SCSS compiler
 
 = 1.0.0 =
 * Initial Release

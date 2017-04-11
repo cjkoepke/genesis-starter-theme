@@ -35,7 +35,7 @@ define( 'CHILD_THEME_NAME', 'Starter Theme' );
 define( 'CHILD_THEME_AUTHOR', 'Calvin Koepke' );
 define( 'CHILD_THEME_AUTHOR_URL', 'https://calvinkoepke.com/' );
 define( 'CHILD_THEME_URL', 'http://startertheme.io' );
-define( 'CHILD_THEME_VERSION', '1.0.0' );
+define( 'CHILD_THEME_VERSION', '1.1.0' );
 define( 'TEXT_DOMAIN', 'startertheme' );
 
 /**
