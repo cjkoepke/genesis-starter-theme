@@ -13,10 +13,19 @@ A starter framework for Genesis child themes which includes starter SCSS files a
 
 <hr/>
 
+## About Starter
+Starter is a project by Calvin Koepke, a frontend designer currently working at Rainmaker Digital.
+The goal of the project is to create a starter theme for Genesis Framework developers that doesn't over-bloat their starting base, while including commonly used templates, codes, and styles, and which includes common Gulp development tasks.
+
+Useful Links:
+
+- [Submit a Pull Request](https://github.com/cjkoepke/genesis-starter-theme/pulls) if you'd like to help out and keep it awesome. ;-)
+- [Changelog](#changelog)
+
+## License
 This starter theme is free to use as you wish. GPL licensing allows for you to hack it however you wish, no credit needed. If you like what I build, you can find me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>.
 
 ### Reasons to Use Starter
-
 - It comes accessible out of the gate.
 - It's mobile-first.
 - It comes pre-packaged with default settings and templates that are common in Genesis child theme development.
@@ -28,7 +37,7 @@ This starter theme is free to use as you wish. GPL licensing allows for you to h
 
 ## What the Gulp Automation Does
 - The Gulp task file will watch dev files under `/assets/` in the SCSS/JS directories and rebuild files on the fly.
-- **Note:** To separate dev from prod files, the task manager will output minified files to a `/build/` folder at the theme root.
+- **Note:** To separate dev from production files, the task manager will output minified files to a `/build/` folder at the theme root.
 - File naming will stay the same with `.min.ext` appended to the file name.
 
 <hr/>
@@ -79,3 +88,14 @@ You can package your theme for production in a ZIP file by running the following
 ```
 $ gulp package-theme
 ```
+
+<hr/>
+
+## Changelog
+= 1.1.0 =
+* Added better responsive menu + menu styles
+* Added sourcemapping
+* Added error logging to SCSS compiler
+
+= 1.0.0 =
+* Initial Release
