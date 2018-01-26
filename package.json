@@ -4,7 +4,6 @@
   "author": "Calvin Koepke",
   "devDependencies": {
     "gulp": "latest",
-    "gulp-concat": "^2.6.1",
     "gulp-rename": "latest",
     "gulp-sort": "latest",
     "gulp-uglify": "latest",
