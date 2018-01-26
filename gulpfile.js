@@ -1,53 +1,61 @@
-/**
- *
- * Gulp task recipe to produce production ready files for a WordPress theme
- * @author Calvin Koepke
- * @version 1.0
- * @link https://twitter.com/cjkoepke
- *
- */
-
-'use strict';
-
-//* Store paths
-var PATHS = {
-	js: './assets/js/',
-	scss: './assets/scss/',
-	build: {
-		js: './build/js/',
-		css: './build/css/'
-	}
-}
-
-//* Load and define dependencies
+// Packages.
 var gulp = require( 'gulp' );
 var scss = require( 'gulp-ruby-sass' );
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
+var concat = require( 'gulp-concat' );
 var pump = require('pump');
 var rename = require( 'gulp-rename' );
 var sort = require( 'gulp-sort' );
 var wpPot = require( 'gulp-wp-pot' );
 var zip = require( 'gulp-zip' );
 
-var taskLoader = [ 'scripts', 'scss', 'watch' ];
+// Paths.
+var PATHS = {
+	js: './assets/js/',
+	scss: './assets/scss/',
+	build: {
+		js: './dist/js/',
+		css: './dist/css/'
+	}
+}
 
-//* Gulp task to combine JS files, minify, and output to bundle.min.js
+var taskLoader = [ 'scripts', 'scripts-bundle', 'scss', 'watch' ];
+
+// Build individual scripts.
 gulp.task( 'scripts', function(cb) {
 
 	pump([
-		gulp.src( PATHS.js + '**/*.js' ),
+		gulp.src( PATHS.js + '/*.js' ),
 		sourcemaps.init(),
+		sourcemaps.write('.'),
+		gulp.dest( PATHS.build.js ),
 		uglify(),
 		rename({ extname: '.min.js' }),
-		sourcemaps.write('maps'),
+		sourcemaps.write('.'),
+		gulp.dest( PATHS.build.js )
+	], cb)
+
+});
+
+// Bundle scripts together.
+gulp.task( 'scripts-bundle', function(cb) {
+
+	pump([
+		gulp.src( PATHS.js + '/bundle/*.js' ),
+		sourcemaps.init(),
+		concat( 'bundle.js' ),
+		gulp.dest( PATHS.build.js ),
+		uglify(),
+		rename({ extname: '.min.js' }),
+		sourcemaps.write('.'),
 		gulp.dest( PATHS.build.js )
 	], cb);
 
 });
 
-//* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
+// Build styles (write to the theme root).
 gulp.task( 'scss', function() {
 
 	scss( PATHS.scss + 'style.scss', {sourcemap: true} )
@@ -58,7 +66,7 @@ gulp.task( 'scss', function() {
 				add: true
 			},
 		}))
-		.pipe(sourcemaps.write('maps', {
+		.pipe(sourcemaps.write('.', {
 			includeContent: false,
 			sourceRoot: './assets/scss'
 		}))
@@ -66,10 +74,11 @@ gulp.task( 'scss', function() {
 
 });
 
-//* Watch files
+// File watcher.
 gulp.task( 'watch', function() {
 
-	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
+	gulp.watch( PATHS.js + '/*.js', ['scripts'] );
+	gulp.watch( PATHS.js + '/bundle/*.js', ['scripts-bundle'] );
 	gulp.watch( PATHS.scss + '**/*.scss', ['scss'] );
 
 });
@@ -77,7 +86,7 @@ gulp.task( 'watch', function() {
 //* ZIP theme
 gulp.task( 'package-theme', function() {
 
-	gulp.src( [ './**/*', '!./node_modules/', '!./node_modules/**', '!./gulpfile.js', '!./package.json' ] )
+	gulp.src( [ './**/*', '!./node_modules/', '!./node_modules/**', '!./gulpfile.js', '!./package.json', '!./lib/src/vendor' ] )
 		.pipe( zip( __dirname.split("/").pop() + '.zip' ) )
 		.pipe( gulp.dest( '../' ) );
 
@@ -89,7 +98,7 @@ gulp.task( 'translate-theme', function() {
 	gulp.src( [ './**/*.php' ] )
 		.pipe( sort() )
 		.pipe( wpPot({
-			domain: "startertheme",
+			domain: "genesis-starter",
 			headers: false
 		}))
 		.pipe( gulp.dest( './translation/' ));
