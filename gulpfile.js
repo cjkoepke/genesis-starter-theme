@@ -1,6 +1,6 @@
 // Packages.
 var gulp = require( 'gulp' );
-var scss = require( 'gulp-ruby-sass' );
+var scss = require( 'gulp-sass' );
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
@@ -56,21 +56,28 @@ gulp.task( 'scripts-bundle', function(cb) {
 });
 
 // Build styles (write to the theme root).
-gulp.task( 'scss', function() {
+gulp.task( 'scss', function(cb) {
 
-	scss( PATHS.scss + 'style.scss', {sourcemap: true} )
-		.on('error', scss.logError)
-		.pipe(sourcemaps.init())
-		.pipe(cssnano({
+	pump([
+		gulp.src( PATHS.scss + 'style.scss' ),
+		scss({
+			sourcemap: true,
+			includePaths: [
+				'./node_modules/**'
+			]
+		}).on('error', scss.logError),
+		sourcemaps.init(),
+		cssnano({
 			autoprefixer: {
 				add: true
-			},
-		}))
-		.pipe(sourcemaps.write('.', {
+			}
+		}),
+		sourcemaps.write('.', {
 			includeContent: false,
-			sourceRoot: './assets/scss'
-		}))
-		.pipe( gulp.dest( './' ) );
+			sourceRoot: PATHS.scss
+		}),
+		gulp.dest('./')
+	], cb)
 
 });
 

@@ -5,19 +5,14 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
     "gulp-rename": "latest",
+    "gulp-sass": "^3.1.0",
     "gulp-sort": "latest",
+    "gulp-sourcemaps": "^2.5.1",
     "gulp-uglify": "latest",
     "gulp-wp-pot": "latest",
-    "gulp-zip": "latest"
-  },
-  "scripts": {
-    "postinstall": "gulp"
-  },
-  "dependencies": {
-    "gulp-cssnano": "^2.1.2",
-    "gulp-ruby-sass": "^2.1.1",
-    "gulp-sourcemaps": "^2.5.1",
+    "gulp-zip": "latest",
     "pump": "^1.0.2"
   }
 }

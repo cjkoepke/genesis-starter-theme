@@ -1,35 +1,34 @@
 /*!
-	Theme Name: Genesis Starter
-	Description: A lightweight and mobile-first starter theme for the Genesis Framework.
-	Author: Calvin Koepke
-	Theme URL: https://github.com/cjkoepke/genesis-starter-theme/
-	Author URI: https://calvinkoepke.com/
-	Version: 2.0
-	License: GPL-3.0+
-	License URI: http://www.opensource.org/licenses/gpl-license.php
-
-	Template: genesis
+ * Theme Name: Genesis Starter
+ * Description: A lightweight and mobile-first starter theme for the Genesis Framework.
+ * Author: Calvin Koepke
+ * Theme URL: https://github.com/cjkoepke/genesis-starter-theme/
+ * Author URI: https://calvinkoepke.com/
+ * Version: 2.0
+ * License: GPL-3.0+
+ * License URI: http://www.opensource.org/licenses/gpl-license.php
+ * Template: genesis
+ *
+ * text-domain: genesis-starter
 */
 
 @import 'mixins/bourbon/_bourbon';
-@import 'variables/var-units';
-@import 'variables/var-type';
-@import 'variables/var-color';
+@import 'variables';
 
-@import 'partials/reset';
-@import 'partials/structures';
-@import 'partials/defaults';
-@import 'partials/type';
-@import 'partials/objects';
-@import 'partials/tables';
-@import 'partials/forms';
-@import 'partials/accessibility';
-@import 'partials/wordpress';
-@import 'partials/navigation';
-@import 'partials/content';
-@import 'partials/sidebars';
-@import 'partials/widgets';
-@import 'partials/genesis';
-@import 'partials/plugins';
-@import 'partials/genesis';
-@import 'partials/footer';
+@import 'reset';
+@import 'structures';
+@import 'defaults';
+@import 'type';
+@import 'objects';
+@import 'tables';
+@import 'forms';
+@import 'accessibility';
+@import 'wordpress';
+@import 'navigation';
+@import 'content';
+@import 'sidebars';
+@import 'widgets';
+@import 'genesis';
+@import 'plugins';
+@import 'genesis';
+@import 'footer';

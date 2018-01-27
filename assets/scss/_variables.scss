@@ -1,0 +1,17 @@
+// Text
+$default: #444;
+$linkDefault: #111;
+
+// Color
+$colorLight: #ddd;
+$colorUltraLight: #f5f5f5;
+
+// Fonts
+$fontBody: Georgia, serif;
+$fontHeading: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Breakpoints
+$break-large:  '1200px' !default;
+$break-medium: '768px'  !default;
+$break-small:  '600px'  !default;
+$responsive-menu-break: $break-large !default;
