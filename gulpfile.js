@@ -20,23 +20,21 @@ var PATHS = {
 }
 
 //* Load and define dependencies
-var gulp = require( 'gulp' );
-var scss = require( 'gulp-ruby-sass' );
-var cssnano = require('gulp-cssnano');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require( 'gulp-uglify' );
-var pump = require('pump');
-var rename = require( 'gulp-rename' );
-var sort = require( 'gulp-sort' );
-var wpPot = require( 'gulp-wp-pot' );
-var zip = require( 'gulp-zip' );
-
-var taskLoader = [ 'scripts', 'scss', 'watch' ];
+const gulp = require( 'gulp' );
+const scss = require( 'gulp-sass' );
+const cssnano = require( 'gulp-cssnano' );
+const sourcemaps = require( 'gulp-sourcemaps' );
+const uglify = require( 'gulp-uglify' );
+const pump = require( 'pump' );
+const rename = require( 'gulp-rename' );
+const sort = require( 'gulp-sort' );
+const wpPot = require( 'gulp-wp-pot' );
+const zip = require( 'gulp-zip' );
 
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
-gulp.task( 'scripts', function(cb) {
+function scripts(cb) {
 
-	pump([
+	return pump([
 		gulp.src( PATHS.js + '**/*.js' ),
 		sourcemaps.init(),
 		uglify(),
@@ -45,56 +43,63 @@ gulp.task( 'scripts', function(cb) {
 		gulp.dest( PATHS.build.js )
 	], cb);
 
-});
+}
 
 //* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
-gulp.task( 'scss', function() {
+function styles(cb) {
 
-	scss( PATHS.scss + 'style.scss', {sourcemap: true} )
-		.on('error', scss.logError)
-		.pipe(sourcemaps.init())
-		.pipe(cssnano({
+	return pump([
+		gulp.src( PATHS.scss + 'style.scss' ),
+		sourcemaps.init(),
+		scss({
+			outputStyle: 'compressed',
+		}).on('error', scss.logError),
+		cssnano({
 			autoprefixer: {
 				add: true
 			},
-		}))
-		.pipe(sourcemaps.write('maps', {
+		}),
+		sourcemaps.write('maps', {
 			includeContent: false,
 			sourceRoot: './assets/scss'
-		}))
-		.pipe( gulp.dest( './' ) );
+		}),
+		gulp.dest( './' )
+	], cb)
 
-});
+}
 
 //* Watch files
-gulp.task( 'watch', function() {
+function watch() {
 
-	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
-	gulp.watch( PATHS.scss + '**/*.scss', ['scss'] );
+	gulp.watch( PATHS.js + '**/*.js', { ignoreInitial: false }, scripts );
+	gulp.watch( PATHS.scss + '**/*.scss', { ignoreInitial: false }, styles );
 
-});
+}
 
 //* ZIP theme
-gulp.task( 'package-theme', function() {
+function package_theme() {
 
 	gulp.src( [ './**/*', '!./node_modules/', '!./node_modules/**', '!./gulpfile.js', '!./package.json' ] )
 		.pipe( zip( __dirname.split("/").pop() + '.zip' ) )
 		.pipe( gulp.dest( '../' ) );
 
-});
+}
 
 //* Translate theme
-gulp.task( 'translate-theme', function() {
+function translate_theme() {
 
 	gulp.src( [ './**/*.php' ] )
 		.pipe( sort() )
 		.pipe( wpPot({
-			domain: "startertheme",
+			domain: "frank",
 			headers: false
 		}))
 		.pipe( gulp.dest( './translation/' ));
 
-});
+}
 
 //* Load tasks
-gulp.task( 'default', taskLoader );
+exports.js    = scripts;
+exports.css   = styles;
+exports.watch = watch;
+exports.default = gulp.parallel(scripts, styles, watch);

@@ -1,22 +1,24 @@
 {
-  "name": "startertheme",
-  "version": "1.1.0",
-  "author": "Calvin Koepke",
-  "devDependencies": {
-    "gulp": "latest",
-    "gulp-rename": "latest",
-    "gulp-sort": "latest",
-    "gulp-uglify": "latest",
-    "gulp-wp-pot": "latest",
-    "gulp-zip": "latest"
-  },
-  "scripts": {
-    "postinstall": "gulp"
-  },
-  "dependencies": {
-    "gulp-cssnano": "^2.1.2",
-    "gulp-ruby-sass": "^2.1.1",
-    "gulp-sourcemaps": "^2.5.1",
-    "pump": "^1.0.2"
-  }
+	"name": "startertheme",
+	"version": "1.1.0",
+	"author": "Calvin Koepke",
+	"devDependencies": {
+		"gulp": "latest",
+		"gulp-rename": "latest",
+		"gulp-sass": "^4.0.2",
+		"gulp-sort": "latest",
+		"gulp-uglify": "latest",
+		"gulp-wp-pot": "latest",
+		"gulp-zip": "latest",
+		"node-sass": "^4.12.0"
+	},
+	"scripts": {
+		"postinstall": "gulp"
+	},
+	"dependencies": {
+		"gulp-cssnano": "^2.1.2",
+		"gulp-ruby-sass": "^2.1.1",
+		"gulp-sourcemaps": "^2.5.1",
+		"pump": "^1.0.2"
+	}
 }
