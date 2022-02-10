@@ -10,7 +10,7 @@
 		"gulp-uglify": "latest",
 		"gulp-wp-pot": "latest",
 		"gulp-zip": "latest",
-		"node-sass": "^4.12.0",
+		"node-sass": "^7.0.0",
 		"tar": "^4.4.8"
 	},
 	"scripts": {
